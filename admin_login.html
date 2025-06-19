@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导师双选系统 | 管理员登录</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="portal-card">
+    <div class="portal-header">
+      <h1><i class="fas fa-shield-alt"></i> 管理员登录</h1>
+      <p class="lead">系统管理控制台</p>
+    </div>
+    
+    <div class="content-container">
+      <div class="login-header">
+        <h2><i class="fas fa-sign-in-alt"></i> 管理员身份验证</h2>
+        <p>请输入您的管理员凭证</p>
+      </div>
+      
+      <form class="login-form" id="admin-form">
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-user-cog"></i> 管理员账号</label>
+          <input type="text" class="form-control" name="name" required placeholder="请输入管理员账号">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-lock"></i> 密码</label>
+          <input type="password" class="form-control" name="password" required placeholder="请输入密码">
+        </div>
+        
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-sign-in-alt"></i> 登录系统
+        </button>
+      </form>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-arrow-left"></i> 返回首页
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fas fa-question-circle"></i> 忘记密码?
+        </a>
+      </div>
+      
+      <div class="footer">
+        <small>© 2023 导师双选系统 | 管理员控制台</small>
+      </div>
+    </div>
+  </div>
+  
+  <script src="assets/js/script.js"></script>
+  <script>
+    document.getElementById('admin-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.querySelector('input[name="name"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+      
+      if(name && password) {
+        alert(`管理员登录成功！\n账号: ${name}`);
+        // 实际项目中这里跳转到管理后台
+      } else {
+        alert('请填写完整的登录信息！');
+      }
+    });
+  </script>
+</body>
+</html>

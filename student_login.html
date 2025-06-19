@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导师双选系统 | 学生登录</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="portal-card">
+    <div class="portal-header">
+      <h1><i class="fas fa-user-graduate"></i> 学生登录</h1>
+      <p class="lead">导师选择与志愿提交</p>
+    </div>
+    
+    <div class="content-container">
+      <div class="login-header">
+        <h2><i class="fas fa-sign-in-alt"></i> 学生身份验证</h2>
+        <p>请输入您的学生账号信息</p>
+      </div>
+      
+      <form class="login-form" id="student-form">
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-id-card"></i> 学号</label>
+          <input type="text" class="form-control" name="sno" required placeholder="请输入您的学号">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-lock"></i> 密码</label>
+          <input type="password" class="form-control" name="password" required placeholder="请输入您的密码">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-shield-alt"></i> 验证码</label>
+          <div style="display: flex; gap: 10px;">
+            <input type="text" class="form-control" style="flex: 1;" placeholder="输入验证码">
+            <div style="background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; width: 100px; font-weight: bold;">
+              3A4B
+            </div>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-sign-in-alt"></i> 登录系统
+        </button>
+        
+        <button type="button" class="btn-alt" id="register-btn">
+          <i class="fas fa-user-plus"></i> 注册新账号
+        </button>
+      </form>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-arrow-left"></i> 返回首页
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fas fa-question-circle"></i> 忘记密码?
+        </a>
+      </div>
+      
+      <div class="footer">
+        <small>© 2023 导师双选系统 | 学生平台</small>
+        <small>技术支持: 计算机学院开发团队</small>
+      </div>
+    </div>
+  </div>
+  
+  <script src="assets/js/script.js"></script>
+  <script>
+    // 确保学生页面可以正常跳转
+    console.log('学生登录页已加载');
+    
+    // 表单提交处理
+    document.getElementById('student-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const sno = document.querySelector('input[name="sno"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+      
+      if(sno && password) {
+        alert(`学生登录成功！\n学号: ${sno}\n即将进入学生系统...`);
+        // 实际项目中这里跳转到学生仪表盘
+      } else {
+        alert('请填写学号和密码！');
+      }
+    });
+    
+    // 注册按钮事件
+    document.getElementById('register-btn').addEventListener('click', function() {
+      alert("注册功能需后端支持，此处为前端演示");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导师双选系统 | 教师登录</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="portal-card">
+    <div class="portal-header">
+      <h1><i class="fas fa-chalkboard-teacher"></i> 教师登录</h1>
+      <p class="lead">导师管理与学生选择</p>
+    </div>
+    
+    <div class="content-container">
+      <div class="login-header">
+        <h2><i class="fas fa-sign-in-alt"></i> 教师身份验证</h2>
+        <p>请输入您的教师账号信息</p>
+      </div>
+      
+      <form class="login-form" id="teacher-form">
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-id-badge"></i> 教师工号</label>
+          <input type="text" class="form-control" name="tno" required placeholder="请输入教师工号">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label"><i class="fas fa-lock"></i> 密码</label>
+          <input type="password" class="form-control" name="password" required placeholder="请输入密码">
+        </div>
+        
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-sign-in-alt"></i> 登录系统
+        </button>
+        
+        <button type="button" class="btn-alt" id="teacher-register">
+          <i class="fas fa-user-plus"></i> 教师注册
+        </button>
+      </form>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-arrow-left"></i> 返回首页
+        </a>
+        <a href="#" class="nav-link">
+          <i class="fas fa-question-circle"></i> 忘记密码?
+        </a>
+      </div>
+      
+      <div class="footer">
+        <small>© 2023 导师双选系统 | 教师平台</small>
+      </div>
+    </div>
+  </div>
+  
+  <script src="assets/js/script.js"></script>
+  <script>
+    document.getElementById('teacher-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const tno = document.querySelector('input[name="tno"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+      
+      if(tno && password) {
+        alert(`教师登录成功！\n工号: ${tno}`);
+        // 实际项目中这里跳转到教师仪表盘
+      } else {
+        alert('请填写工号和密码！');
+      }
+    });
+    
+    document.getElementById('teacher-register').addEventListener('click', function() {
+      alert("教师注册功能需管理员审核");
+    });
+  </script>
+</body>
+</html>
